@@ -1,7 +1,13 @@
+v0.9.10 - Aug 14, 2013
+---------------------
+
+### Added:
+  * Support for jQuery :animated selector
+
 v0.9.9 - Dec 14, 2012
 ---------------------
 
-Many, many thanks to the many [contributors] who made this release happen! This 
+Many, many thanks to the many [contributors] who made this release happen! This
 is a pre-release of 1.0.
 
 ### Fixes and additions:
