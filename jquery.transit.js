@@ -596,8 +596,12 @@
     var run = function(nextCall) {
       var bound = false;
 
+      // Support :animated selector
+      var fxTimer = addJqueryFxTimer(duration);
+
       // Prepare the callback.
       var cb = function() {
+        removeJqueryFxTimer(fxTimer);
         if (bound) { self.unbind(transitionEnd, cb); }
 
         if (i > 0) {
@@ -626,6 +630,11 @@
         }
         $(this).css(properties);
       });
+
+      function removeJqueryFxTimer(t) {
+        var ind = jQuery.timers.indexOf(t)
+        if(ind > -1 ) jQuery.timers.splice( jQuery.timers.indexOf(t), 1 )
+      }
     };
 
     // Defer running. This allows the browser to paint any pending CSS it hasn't
@@ -641,6 +650,14 @@
     // Chainability.
     return this;
   };
+
+  function addJqueryFxTimer(duration) {
+    function t() { return duration; }
+    t.elem = self[0];
+    jQuery.fx.timer(t);
+
+    return t;
+  }
 
   function registerCssHook(prop, isPixels) {
     // For certain properties, the 'px' should not be implied.
