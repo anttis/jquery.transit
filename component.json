@@ -1,8 +1,8 @@
 {
   "name": "jquery.transit",
-  "repo": "rstacruz/jquery.transit",
+  "repo": "anttis/jquery.transit",
   "description": "Smooth CSS3 transitions and transformations for jQuery.",
-  "version": "0.9.9",
+  "version": "0.9.10",
   "keywords": [
     "css3",
     "animation",
